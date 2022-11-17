@@ -3,7 +3,9 @@ import { Button, View, ScrollView, StyleSheet, Text, Image, ImageBackground } fr
 import Constants from 'expo-constants';
 import { useState } from "react";
 
-const Layout = () => {
+const Layout = (props) => {
+  const { navigation } = props;
+
 
   const flexDirectionsArray = ['row', 'row-reverse', 'column', 'column-reverse'];
   const justifyContents = [
@@ -19,19 +21,18 @@ const Layout = () => {
   const directions = ['inherit', 'ltr', 'rtl'];
 
   const [flexDirectionIndex, setFlexDirection] = useState(0);
-  const [justifyContentIndex, setjustfyContents] = useState(0);
-  const [alignItemsIndex, setalignItems] = useState(0);
-  const [directionsIndex, setdirections] = useState(0);
-  const [wrapsIndex, setwraps] = useState(0);
-
+  const [justifyContentIndex, setJustifyContent] = useState(0);
+  const [alignItemIndex, setAlignItem] = useState(0);
+  const [wrapIndex, setWrap] = useState(0);
+  const [aaa, setDirection] = useState(0);
 
   const hookedStyles = {
-    flexDirection: flexDirectionsArray[flexDirectionIndex], 
+    flexDirection: flexDirectionsArray[flexDirectionIndex],
     justifyContent: justifyContents[justifyContentIndex],
-    alignItems: alignItems[alignItemsIndex],
-    direction: directions[directionsIndex], 
-    flexWrap: wraps[wrapsIndex],
-  }
+    alignItems: alignItems[alignItemIndex],
+    flexWrap : wraps[wrapIndex],
+    direction : directions[aaa],
+  }  
 
   const changeSetting = (value, options, setterfunction) => {
     var targetValue = 0;
@@ -71,20 +72,20 @@ const Layout = () => {
         </View>
         <View style={[styles.buttonView]}>
           <Button title="CHANGE JUSTIFY CONTENT" 
-            onPress={() => changeSetting(justifyContentIndex,justifyContents, setjustfyContents)}
+            onPress={() => changeSetting(justifyContentIndex, justifyContents, setJustifyContent)}
           />
         </View>
         <View style={[styles.buttonView]}>
           <Button title="CHANGE ALIGN ITEMS" 
-            onPress={() => changeSetting(alignItemsIndex, alignItems, setalignItems)}/>
+            onPress={() => changeSetting(alignItemIndex, alignItems, setAlignItem)}/>
         </View>
         <View style={[styles.buttonView]}>
           <Button title="CHANGE DIRECTION" 
-            onPress={() => changeSetting(directionsIndex, directions, setdirections)}/>
+            onPress={() => changeSetting(wrapIndex, wraps, setWrap)}/>
         </View>
         <View style={[styles.buttonView]}>
           <Button title="CHAGE FLEX WRAP" 
-            onPress={() => changeSetting(wrapsIndex, wraps, setwraps)}/>
+            onPress={() => changeSetting(aaa, directions, setDirection)}/>
         </View>
         <View style={[styles.buttonView]}>
           <Button title="ADD SQUARE" 

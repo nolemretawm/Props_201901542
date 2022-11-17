@@ -6,7 +6,7 @@ import MainStackNavigator from "./routes/MainStackNavigator";
 
 const App = () => {
 
-  return <MainStackNavigator/>;
-};
+    return <MainStackNavigator/>;
+}
 
 export default App;

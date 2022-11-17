@@ -3,8 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
-import Home from '../screens/home';
-import Layout from '../screens/layout';
+import Home from '../screens/Home';
+import Layout from '../screens/Layout';
 
 const Nav= createBottomTabNavigator();
 
@@ -29,7 +29,5 @@ function MainTabNavigator(){
     );
 
 }
-
-
 export default MainTabNavigator;
 

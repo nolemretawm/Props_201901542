@@ -1,31 +1,31 @@
 import React from "react";
-import {Image, Text, Button, View, StyleSheet, Touchable, TouchableOpacity} from 'react-native';
+import {Image, Text, Button, View, StyleSheet, TouchableOpacity} from 'react-native';
 
 function Home({navigation}) {
     return (
-        <View style = {styles.container}>
-            <Image>
-            source ={require('../assets/frog-1371919.png')}
-            styke={{width:400,height:400}}
-            /</Image>
+        <>
 
-        <TouchableOpacity
-         style = {styles.buttoneContainer}
-         onPress={()=> navigation.navigate('Layout')}
-        >
-             <Text style={styles.buttonTest}>Go To Layout</Text>
-        </TouchableOpacity>
-          
-            <Button 
-                title = "Go to Layout" 
-                onPress={() => navigation.navigate('Layout')}
-            />
+          <View style = {styles.container}>
+            <Image
+              source ={require('../assets/frog-1371919.png')}
+              style={{height:400, width:400}}
+           />
+
+           <TouchableOpacity
+            style = {styles.buttonContainer}
+            onPress={()=> navigation.navigate('Layout')}
+         >
+             <Text style={styles.buttonText}>Go To Layout</Text>
+
+           </TouchableOpacity>
+        
+            
         </View>
-
+        </>
     );
 }
 const styles = StyleSheet.create({
-    container:{
+    buttoncontainer:{
         flex:1,
         justifyContent:'center',
         alignItems:'center',
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         margin:20
 
     },
-    buttonTest:{
+    buttonText:{
         fontSize:20,
         color:'#fff'
 

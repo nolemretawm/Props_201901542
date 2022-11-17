@@ -7,7 +7,9 @@ import Home from '../screens/Home';
 
 const Nav = createStackNavigator();
 
-
+function MainStackNavigator(){
+    return(
+        <NavigationContainer>
             <Nav.Navigator initialRouteName='Home' >
                 <Nav.Screen 
                     name = "Home" 
@@ -21,5 +23,8 @@ const Nav = createStackNavigator();
                     options={{ title: 'layout Screen'}} 
                 />
             </Nav.Navigator>
-
+         </NavigationContainer>
+         
+    )
+}
 export default MainStackNavigator;

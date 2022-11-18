@@ -69,32 +69,54 @@ const Layout = (props) => {
           <Button title="CHANGE FLEX DIRECTION" 
             onPress={() => changeSetting(flexDirectionIndex, flexDirectionsArray, setFlexDirection)}
           />
+          <Text style={styles.buttonText}>{flexDirectionsArray[flexDirectionIndex]}</Text>
+
         </View>
         <View style={[styles.buttonView]}>
           <Button title="CHANGE JUSTIFY CONTENT" 
             onPress={() => changeSetting(justifyContentIndex, justifyContents, setJustifyContent)}
           />
+          <Text style={styles.buttonText}>{justifyContents[justifyContentIndex]}</Text>
+
         </View>
         <View style={[styles.buttonView]}>
           <Button title="CHANGE ALIGN ITEMS" 
-            onPress={() => changeSetting(alignItemIndex, alignItems, setAlignItem)}/>
+            onPress={() => changeSetting(alignItemIndex, alignItems, setAlignItem)}
+          />
+          <Text style={styles.buttonText}>{alignItems[alignItemIndex]}</Text>
+
         </View>
         <View style={[styles.buttonView]}>
           <Button title="CHANGE DIRECTION" 
-            onPress={() => changeSetting(wrapIndex, wraps, setWrap)}/>
+            onPress={() => changeSetting(aaa, directions, setDirection)}
+          />
+          <Text style={styles.buttonText}>{directions[aaa]}</Text>
+
         </View>
         <View style={[styles.buttonView]}>
           <Button title="CHAGE FLEX WRAP" 
-            onPress={() => changeSetting(aaa, directions, setDirection)}/>
+            onPress={() => changeSetting(wrapIndex, wraps, setWrap)} 
+          />
+          <Text style={styles.buttonText}>{wraps[wrapIndex]}</Text>
+
         </View>
         <View style={[styles.buttonView]}>
           <Button title="ADD SQUARE" 
-            onPress={() => setSquares([...squares, Square()])}/>
+            onPress={() => setSquares([...squares, Square()])}
+          />
+
         </View>
         <View style={[styles.buttonView]}>
           <Button title="DELETE SQUARE" 
             onPress={() => setSquares(squares.filter((v,i) => i != squares.length - 1))}/>
         </View>
+
+        <View style={styles.buttonView}>
+          <Button title="GO TO HOME"
+             onPress={() =>navigation.navigate('Home')}
+          />
+        </View>
+
       </View>
       
 
@@ -123,6 +145,15 @@ const styles = StyleSheet.create({
 
     width:'50%',
     padding:10
+  },
+  buttonText:{
+    fontSize: 20,
+    color: 'black',
+    textAlign:'center',
+  },
+  smallLogo: {
+    width: 100,
+    height: 100,
   }
 });
 

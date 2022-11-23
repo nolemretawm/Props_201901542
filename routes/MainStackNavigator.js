@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Layout from '../screens/Layout';
 import Home from '../screens/Home';
+import Weather from '../screens/Weather';
 
 const Nav = createStackNavigator();
 
@@ -14,13 +15,19 @@ function MainStackNavigator(){
                 <Nav.Screen 
                     name = "Home" 
                     component = {Home} 
-                    options={{ title: 'home Screen'}} 
+                    options={{ title: '추가 Home'}} 
                 />
 
                 <Nav.Screen 
                     name = "Layout" 
                     component = {Layout} 
-                    options={{ title: 'layout Screen'}} 
+                    options={{ title: '처음 Layout'}} 
+                />
+
+                <Nav.Screen
+                    name = "Weather"
+                    component={Weather}
+                    options={{title:'날씨조회화면'}}
                 />
             </Nav.Navigator>
          </NavigationContainer>

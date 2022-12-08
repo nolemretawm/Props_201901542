@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Layout from '../screens/Layout';
 import Home from '../screens/Home';
 import Weather from '../screens/Weather';
+import YoutubeViewer from '../screens/YoutubeViewer';
 
 const Nav = createStackNavigator();
 
@@ -28,6 +29,12 @@ function MainStackNavigator(){
                     name = "Weather"
                     component={Weather}
                     options={{title:'날씨조회화면'}}
+                />
+            
+                <Nav.Screen 
+                    name = "YoutubeViewer"
+                    component={YoutubeViewer} 
+                    options={{title: 'YouTube'}}
                 />
             </Nav.Navigator>
          </NavigationContainer>

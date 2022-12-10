@@ -7,7 +7,9 @@ import Home from '../screens/Home';
 import Layout from '../screens/Layout';
 import Weather from '../screens/Weather';
 import YoutubeViewer from '../screens/YoutubeViewer';
+
 import WeatherPlus from '../screens/WeatherPlus';
+
 
 const Nav= createBottomTabNavigator();
 
@@ -38,11 +40,13 @@ function MainTabNavigator(){
                     component={YoutubeViewer} 
                     options={{title: 'YouTube'}}
                 />
+
                 <Nav.Screen
                     name = "WeatherPlus"
                     component={WeatherPlus}
                     options={{title:'날씨추가정보'}}
                 />
+
             </Nav.Navigator>
        </NavigationContainer>
 

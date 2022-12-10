@@ -6,7 +6,9 @@ import Layout from '../screens/Layout';
 import Home from '../screens/Home';
 import Weather from '../screens/Weather';
 import YoutubeViewer from '../screens/YoutubeViewer';
+
 import WeatherPlus from '../screens/WeatherPlus';
+
 
 const Nav = createStackNavigator();
 
@@ -37,11 +39,13 @@ function MainStackNavigator(){
                     component={YoutubeViewer} 
                     options={{title: 'YouTube'}}
                 />
+
                 <Nav.Screen
                     name = "WeatherPlus"
                     component={WeatherPlus}
                     options={{title:'날씨추가정보'}}
                 />
+
             </Nav.Navigator>
          </NavigationContainer>
          

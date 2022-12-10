@@ -8,7 +8,7 @@ import YoutubePlayer from "react-native-youtube-iframe";
 
 const YoutubeViewer = (props) => {
     const [playing, setPlaying] = useState(false);
-    const [playingVideoId, setPlayingVideoId] = useState("7_HuJ6VsRho");
+    const [playingVideoId, setPlayingVideoId] = useState('7_HuJ6VsRho');
     const onStateChange = useCallback((state) => {
         if (state === "ended"){
             setPlaying(false);
@@ -44,7 +44,7 @@ const YoutubeViewer = (props) => {
 
 const styles = StyleSheet.create({
     input:{
-        height:40,
+        height:30,
         margin:12,
         borderWidth:1,
         padding:10,

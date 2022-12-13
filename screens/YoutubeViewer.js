@@ -7,8 +7,10 @@ import YoutubePlayer from "react-native-youtube-iframe";
 
 
 const YoutubeViewer = (props) => {
+    const { navigation } = props;
+
     const [playing, setPlaying] = useState(false);
-    const [playingVideoId, setPlayingVideoId] = useState('7_HuJ6VsRho');
+    const [playingVideoId, setPlayingVideoId] = useState('iCUkiUGmIi8');
 
     const onStateChange = useCallback((state) => {
         if (state === "ended"){
@@ -38,10 +40,16 @@ const YoutubeViewer = (props) => {
             onChangeText = {setPlayingVideoId}
             value ={playingVideoId}
             />
+            <View style={styles.buttonView}>
+          <Button title="GO TO HOME"
+             onPress={() =>navigation.navigate('Home')}
+          />
+        </View>
         </ScrollView>
     )
 
 }
+
 
 const styles = StyleSheet.create({
     input:{

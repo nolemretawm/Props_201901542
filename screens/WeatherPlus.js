@@ -1,11 +1,12 @@
 import React from "react";
-import { Text, Alert, StyleSheet, View, Image, TextInput,ScrollView} from "react-native";
+import { Button,Text, Alert, StyleSheet, View, Image,} from "react-native";
 import * as Location from 'expo-location';
 import Constants from 'expo-constants';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import {REACT_APP_WEATHER_KEY} from "@env";
 import axios from "axios";
+
 
 const weatherOptions = {
     Clear: {
@@ -80,8 +81,8 @@ export default class Weather extends React.Component {
         const {cond, temp, icon,feels_like,temp_min,temp_max} = this.state;
         return (
             <>
-                <View style={{ paddingTop: Constants.statusBarHeight}} />
-                <Text style={styles.MainText}>      What should I wear today?  </Text>
+               
+                <Text style={styles.MainText}>{'\n'}    What should I wear today?  </Text>
 
                 <View style={styles.container}></View>
                     <View style={styles.playingSpace}>
@@ -94,27 +95,23 @@ export default class Weather extends React.Component {
                     
                     <MaterialCommunityIcons name={weatherOptions[cond].iconName} size={50} color="#58CCFF" />                 
 
-                    <Text style={styles.temptitile}>날씨 상태 : {cond}    </Text> 
-                    <Text style={styles.temptitile}>현재 기온 : {temp}℃</Text>
+                    <Text style={styles.temptitile}>날씨 상태 : {cond}, 현재 기온 : {temp}℃  </Text> 
                     <Text style={styles.temptitile}>체감 온도 : {feels_like}℃</Text> 
-                    <Text style={styles.temptitile}>최저 기온 : {temp_min}℃</Text>
-                    <Text style={styles.temptitile}>최고 기온 : {temp_max}℃</Text>
-
-                    </View>
-                    <View style ={styles.halfContainer}>
-                    <Image
-                            source={{uri:`http://openweathermap.org/img/wn/${weatherOptions[cond].openName}@2x.png`}}
-                            style={{width: 30, height: 30}}/>
-                    <Text><AntDesign name="check" size={30} color="red" />
+                    <Text style={styles.temptitile}>최저 기온 : {temp_min}℃, 최고 기온 : {temp_max}℃</Text>
+                    <Text><AntDesign name="check" size={25} color="red" />
                     ※ 오늘의 기온을 확인하고 옷을 챙겨 입으세요! </Text>
                     </View>
-
-
-            </>
+                    <View style={styles.buttonView}>
+                     <Button title="기상 뉴스 시청하기"
+                        onPress={() =>navigation.navigate('YoutubeViewer')}
+                      />
+                    </View>
+   </>
 
         );
     }
 }
+
 
    
 
@@ -123,17 +120,20 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: '#FFF7D3'
+
     },
     halfcontainer: {
         flex: 1,
         justifyContent : "center",
         alignItems: "center",
+        backgroundColor: '#FFF7D3'
     },
     temptitle: {
         fontSize: 24,
         fontWeight: 'bold',
-        
+        backgroundColor: '#FFF7D3'
     },
     playingSpace: {
         backgroundColor: '#FFF7D3',
@@ -144,16 +144,24 @@ const styles = StyleSheet.create({
         justifyContent:'space-between'
       },
       MainText: {
-        fontSize:25,
+        fontSize:27,
         fontWeight: "bold",
         color:'#FD6F22',
         fontStyle: 'italic',
         textShadowColor: "#FD9F28",
         textShadowRadius: 3,
-        textDecorationStyle:'dashed'
-        
+        textDecorationStyle:'dashed',
+        backgroundColor: '#FFF7D3',
+        alignItems: 'center',
+        justifyContent: "center",
       },
-      paddingTop:{
-      }
-});
-
+    paddingTop:{
+        borderColor: '#FD8A69',
+        borderStyle: 'dashed',
+        borderWidth: 3,
+    },
+    buttonView:{
+        backgroundColor: '#FFF7D3',
+        color: 'black'
+    }
+})

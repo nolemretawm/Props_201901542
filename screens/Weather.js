@@ -8,6 +8,7 @@ import {REACT_APP_WEATHER_KEY} from "@env";
 
 import axios from "axios";
 
+
 const weatherOptions = {
     Clear: {
         iconName : "weather-sunny"
@@ -18,11 +19,11 @@ const weatherOptions = {
 }
 
 export default class Weather extends React.Component {
-
+    
     state = {
      cond : "Clear"
     }
-
+    
     getWeather = async (latitude, longitude) => {
         try {
             const {data} = await axios.get(
@@ -43,7 +44,7 @@ export default class Weather extends React.Component {
             Alert.alert("Error", error.message)
         }
     };
-
+    
     getLocation = async () => {
         try {
             //await location
@@ -64,7 +65,7 @@ export default class Weather extends React.Component {
         this.getLocation();
 
     };
-
+   
     render () {
 
         const {cond, temp, icon} = this.state;
@@ -73,13 +74,14 @@ export default class Weather extends React.Component {
             <View style={[styles.container]}>
                 <View style={[styles.halfcontainer]}>
                     <MaterialCommunityIcons name={weatherOptions[cond].iconName} size={128} color="black" />
-                    <Text style={[styles.temptitle]}> {temp} </Text>
+                    <Text style={[styles.temptitle]}> {temp} {cond}  </Text>
                 </View>
                 
             </View>
         );
     }
 }
+
 
 const styles = StyleSheet.create({
     container: {

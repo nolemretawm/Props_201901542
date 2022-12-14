@@ -1,5 +1,5 @@
 import React from "react";
-import { Button,Text, Alert, StyleSheet, View, Image,} from "react-native";
+import { Text, Alert, StyleSheet, View, Image,} from "react-native";
 import * as Location from 'expo-location';
 import Constants from 'expo-constants';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -81,13 +81,13 @@ export default class Weather extends React.Component {
         const {cond, temp, icon,feels_like,temp_min,temp_max} = this.state;
         return (
             <>
-               
-                <Text style={styles.MainText}>{'\n'}    What should I wear today?  </Text>
-
+               <View style={{ paddingTop: Constants.statusBarHeight}} />
+                
                 <View style={styles.container}></View>
                     <View style={styles.playingSpace}>
                     <View style={styles.halfContainer}>                    
                     </View>
+                    <Text style={styles.MainText}>{'\n'}    What should I wear today?  </Text>
                  <Image
                     source={require('../assets/weather-clothes3.jpg')}
                     style={{height:400,width:400}}
@@ -98,22 +98,15 @@ export default class Weather extends React.Component {
                     <Text style={styles.temptitile}>날씨 상태 : {cond}, 현재 기온 : {temp}℃  </Text> 
                     <Text style={styles.temptitile}>체감 온도 : {feels_like}℃</Text> 
                     <Text style={styles.temptitile}>최저 기온 : {temp_min}℃, 최고 기온 : {temp_max}℃</Text>
-                    <Text><AntDesign name="check" size={25} color="red" />
-                    ※ 오늘의 기온을 확인하고 옷을 챙겨 입으세요! </Text>
+                    <Text>{'\n'}<AntDesign name="check" size={25} color="red" />
+                    ※ 오늘의 기온을 확인하고 기온에 맞게 옷을 챙겨 입으세요! </Text>
                     </View>
-                    <View style={styles.buttonView}>
-                     <Button title="기상 뉴스 시청하기"
-                        onPress={() =>navigation.navigate('YoutubeViewer')}
-                      />
-                    </View>
-   </>
+                    <View style={{ paddingBottom: Constants.statusBarHeight}} />
+                            </>
 
         );
     }
 }
-
-
-   
 
 const styles = StyleSheet.create({
     
@@ -128,12 +121,16 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent : "center",
         alignItems: "center",
-        backgroundColor: '#FFF7D3'
+        backgroundColor: '#FFF7D3',
+        fontStyle:'italic',
+
     },
     temptitle: {
-        fontSize: 24,
+        fontSize: 26,
         fontWeight: 'bold',
-        backgroundColor: '#FFF7D3'
+        backgroundColor: '#FFF7D3',
+        fontStyle:'italic',
+        
     },
     playingSpace: {
         backgroundColor: '#FFF7D3',
@@ -155,13 +152,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: "center",
       },
-    paddingTop:{
-        borderColor: '#FD8A69',
-        borderStyle: 'dashed',
-        borderWidth: 3,
-    },
-    buttonView:{
-        backgroundColor: '#FFF7D3',
-        color: 'black'
-    }
+    
 })

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Alert, StyleSheet, View } from "react-native";
+import { Text, Alert, StyleSheet, View,TextInput, ScrollView,Button } from "react-native";
 import * as Location from 'expo-location';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -19,7 +19,8 @@ const weatherOptions = {
 }
 
 export default class Weather extends React.Component {
-    
+     
+
     state = {
      cond : "Clear"
     }
@@ -69,7 +70,6 @@ export default class Weather extends React.Component {
     render () {
 
         const {cond, temp, icon} = this.state;
-
         return (
             <View style={[styles.container]}>
                 <View style={[styles.halfcontainer]}>
@@ -78,9 +78,14 @@ export default class Weather extends React.Component {
                 </View>
                 
             </View>
-        );
+        
+        )
+    
     }
+    
 }
+
+
 
 
 const styles = StyleSheet.create({
@@ -96,5 +101,13 @@ const styles = StyleSheet.create({
     },
     temptitle: {
         fontSize: 24,
-    }
+    },
+    input:{
+
+        height:30,
+        height:40,
+        margin:12,
+        borderWidth:1,
+        padding:10,
+    },
 });
